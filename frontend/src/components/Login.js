@@ -6,7 +6,7 @@ import GoogleLogin from "react-google-login";
 
 
 dotenv.config();
-const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+const baseURL = process.env.REACT_APP_BASEURL || "https://blog2007.herokuapp.com";
 
 class Login extends React.Component {
     //After logging in, redirect to previous page
