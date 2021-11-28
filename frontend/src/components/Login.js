@@ -58,42 +58,7 @@ class Login extends React.Component {
             .catch((err) => console.error(err));
     }
 
-    // Twitter login success callback
-    // Very similar to the previous google login callback
-    twitterAuthHandler = (err, data) => {
-        if (err) {
-            window.location = "/login";
-        } else {
-            const user = {
-                username: data.screen_name,
-                socialId: data.user_id,
-            };
-
-            axios
-                .post(`${baseURL}/auth/login`, user)
-                .then((res) => {
-                    let count = 0;
-
-                    if (res.data.socialId) {
-                        sessionStorage.setItem("isLoggedIn", "true");
-                        sessionStorage.setItem("username", res.data.username);
-                        count++;
-
-                        window.setTimeout(() => {
-                            sessionStorage.removeItem("isLoggedIn");
-                            sessionStorage.removeItem("username");
-                        }, 24 * 60 * 60 * 60);
-
-                        if (count === 1) {
-                            window.location.reload();
-                        }
-                    } else {
-                        window.location = "/login";
-                    }
-                })
-                .catch((err) => console.error(err));
-        }
-    };
+   
 
     // Google login failure callback
     failureGoogleLogin(response) {
