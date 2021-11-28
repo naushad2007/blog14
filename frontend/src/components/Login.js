@@ -3,7 +3,7 @@ import axios from "axios";
 import dotenv from "dotenv";
 
 import GoogleLogin from "react-google-login";
-import TwitterLogin from "react-twitter-login";
+
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
@@ -121,19 +121,7 @@ class Login extends React.Component {
                         />
                     </div>
                     <br />
-                    <div className="twitter">
-                        <TwitterLogin
-                            authCallback={this.twitterAuthHandler}
-                            consumerKey={
-                                process.env.REACT_APP_TWITTER_CONSUMER_ID
-                            }
-                            consumerSecret={
-                                process.env.REACT_APP_TWITTER_CONSUMER_SECRET
-                            }
-                            callbackUrl="https://mern-blog-it.herokuapp.com/login"
-                            buttonTheme="light"
-                        />
-                    </div>
+                    
                 </div>
             </div>
         );
